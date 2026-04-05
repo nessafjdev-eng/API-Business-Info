@@ -1,6 +1,7 @@
 ﻿using BusinessInfo.Application.Common.AES;
 using BusinessInfo.Application.Common.Exceptions;
 using BusinessInfo.Application.Common.Interfaces;
+using BusinessInfo.Application.Common.Metrics;
 using BusinessInfo.Application.Common.Models.Response;
 using BusinessInfo.Application.Vehicle.Command.Create;
 using BusinessInfo.Common;
@@ -86,6 +87,7 @@ namespace BusinessInfo.Application.VehicleSaved.Command.Create
                 IssuerId = issuerId
             };
             await _context.Vehicles.AddAsync(vehicle);
+            ApplicationMetrics.ManyVehiclesRegisteredInShortTime(issuerId.ToString());
 
             return vehicle;
             

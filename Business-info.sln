@@ -30,6 +30,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{02
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessInfo.UpdateStatusLocation", "BusinessInfo.Worker\BusinessInfo.UpdateStatusLocation.csproj", "{A7B04AE4-981A-45EA-9DB9-A311AA5FBD03}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{C224BF6F-8FF5-4ED9-99D2-FC5CCC9FACAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

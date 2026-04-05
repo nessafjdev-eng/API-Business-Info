@@ -36,19 +36,13 @@ namespace BusinessInfo.Application.VehicleSaved.Queries.List
             {
                 _logger.LogInformation("Starting List Vehicle {data}", request.ToJson());
 
-                var cacheKey = $"List Vehicle: {request.ToJson()}";
-                var cacheData = await _redis.GetAsync<PaginatedModelResponse<ListVehicleQueryResponse>>(cacheKey);
-
-                if (cacheData is not null)
-                {
-                    _logger.LogInformation("Returning vehicles from cache.");
-                    return new ResponseApiBase<PaginatedModelResponse<ListVehicleQueryResponse>>
-                    {
-                        Data = cacheData
-                    };
-                }
 
                 var query = _context.Vehicles.OrderByDescending(x => x.CreatedAt).AsQueryable();
+
+                if (!string.IsNullOrWhiteSpace(request.VehicleId.ToString()))
+                {
+                    query = query.Where(x => x.Id == request.VehicleId);
+                }
                 if (!string.IsNullOrWhiteSpace(request.Plate))
                 {
                     var encryptedPlate = request.Plate.Trim();
@@ -82,6 +76,7 @@ namespace BusinessInfo.Application.VehicleSaved.Queries.List
                 {
                     listResponse.Add(new ListVehicleQueryResponse
                     {
+                        VehicleId = vehicle.Id,
                         Plate = vehicle.Plate,
                         NameVehicle = vehicle.NameVehicle,
                         Renavam = vehicle.Renavam,
@@ -91,15 +86,11 @@ namespace BusinessInfo.Application.VehicleSaved.Queries.List
                         TypeVechicle = vehicle.TypeVechicle,
                         ModelCar = vehicle.Model,
                         Brand = vehicle.Brand,
-                        StatusVehicle = null  //vehicle.Locations.Any(l => l.Status == LocationStatus.Active)
-                            //? "Alugado"
-                            //: "Disponível para Locação"
+                        StatusVehicle = vehicle.IsRented ? "Alugado" : "Disponivel para Locação"
                     });
                 }
 
                 var paginatedResult = new PaginatedModelResponse<ListVehicleQueryResponse>(totalItems, listResponse);
-
-                await _redis.SetAsync(cacheKey, paginatedResult, TimeSpan.FromMinutes(10));
 
                 return new ResponseApiBase<PaginatedModelResponse<ListVehicleQueryResponse>>
                 {

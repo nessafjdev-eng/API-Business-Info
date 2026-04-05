@@ -9,6 +9,7 @@ namespace BusinessInfo.Application.VehicleSaved.Queries.List
 {
     public class ListVehicleQueryResponse
     {
+        public Guid VehicleId { get; set; }
         public string Plate { get; set; }
         public int Year { get; set; }
         public string NameVehicle { get; set; }

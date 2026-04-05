@@ -26,6 +26,7 @@ namespace BusinessInfo.Internal.API.Controllers
             var responseApi = new ResponseApiBase<PaginatedModelResponse<ListVehicleQueryResponse>>();
             request = new ListVehicleQueryRequest
             {
+                VehicleId = request.VehicleId,
                 IssuerName = request.IssuerName,
                 ModelCar = request.ModelCar,
                 DailyRate = request.DailyRate,

@@ -15,6 +15,6 @@ namespace BusinessInfo.Domain.Entities
         public TypeVechicle TypeVechicle { get; set; }
         public Guid IssuerId { get; set; }
         public Issuer Issuer { get; set; }
-
+        public bool IsRented { get; set; }
     }
 }

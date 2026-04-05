@@ -63,6 +63,7 @@ namespace BusinessInfo.Internal.API.Middlewares
                         }
                     }.ToJson();
                     break;
+
                 case NotFoundException _:
                     code = HttpStatusCode.NotFound;
                     break;

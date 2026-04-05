@@ -10,6 +10,7 @@ namespace BusinessInfo.Application.VehicleSaved.Queries.List
 {
     public class ListVehicleQueryRequest : IRequest<ResponseApiBase<PaginatedModelResponse<ListVehicleQueryResponse>>>
     {
+        public Guid? VehicleId { get; set; }
         public string Plate {  get; set; }
         public string NameVehicle { get; set; }
         public decimal DailyRate { get; set; }

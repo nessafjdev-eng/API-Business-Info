@@ -46,6 +46,8 @@ namespace MitroVehicle.Persistence.Configurations
                             .HasColumnType("int")
                             .IsRequired();
 
+            builder.Property(x => x.IsRented).HasDefaultValue(false);
+
             builder.HasOne(v => v.Issuer)
               .WithMany(i => i.Vehicles)
               .HasForeignKey(v => v.IssuerId)

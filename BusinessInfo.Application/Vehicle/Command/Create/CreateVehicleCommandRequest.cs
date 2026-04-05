@@ -1,11 +1,14 @@
 ﻿using BusinessInfo.Application.Common.Models.Response;
 using BusinessInfo.Domain.Enumerators;
 using MediatR;
+using System.Text.Json.Serialization;
 
 namespace BusinessInfo.Application.Vehicle.Command.Create
 {
     public class CreateVehicleCommandRequest : IRequest<ResponseApiBase<Guid>>
     {
+        [JsonIgnore]
+        public Guid Id { get; set; }
         public string NameVehicle { get; set; }
         public string Plate { get; set; }
         public string Model { get; set; }

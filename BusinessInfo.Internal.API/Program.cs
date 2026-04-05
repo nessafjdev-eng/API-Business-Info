@@ -1,8 +1,10 @@
 ﻿using BusinessInfo.Application;
+using BusinessInfo.Application.Common.Metrics;
 using BusinessInfo.Common;
 using BusinessInfo.Internal.API.Extensions;
 using BusinessInfo.Internal.API.Middlewares;
 using BusinessInfo.Persistence;
+using Prometheus;
 
 namespace BusinessInfo.Internal.API;
 
@@ -22,6 +24,7 @@ public class Program
         builder.Services.AddHealthChecks();
         builder.Services.AddPersistence();
 
+
         var app = builder.Build();
 
         app.UseSwagger();
@@ -30,7 +33,7 @@ public class Program
             x.SwaggerEndpoint("/swagger/v1/swagger.json", "Internal.Api v1");
             x.RoutePrefix = "docs";
         });
-
+        app.UseMetricServer().UseHttpMetrics();
         app.UseRouting();
         app.UseAuthentication();
         app.UseAuthorization();
