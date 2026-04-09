@@ -12,6 +12,9 @@ namespace BusinessInfo.Persistence.Context
         public DbSet<Issuer> Issuers { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
+        public DbSet<RentalPartner> RentalPartners { get; set; }
+
+
         public BusinessInfoContext() { }
         public BusinessInfoContext(DbContextOptions<BusinessInfoContext> options) : base(options) { }
 
@@ -52,5 +55,6 @@ namespace BusinessInfo.Persistence.Context
         }
 
         public DatabaseFacade DataBaseOrigin { get { return this.Database; } }
+
     }
 }

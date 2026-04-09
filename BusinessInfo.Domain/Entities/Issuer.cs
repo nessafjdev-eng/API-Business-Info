@@ -5,6 +5,8 @@
         public Guid CompanyId { get; set; }
         public Company Companies { get; set; }
         public List<Vehicle> Vehicles { get; set; }
+        public List<RentalPartner> RentalPartners { get; set; }
+
 
     }
 }

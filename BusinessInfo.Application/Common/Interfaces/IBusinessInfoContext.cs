@@ -10,6 +10,7 @@ namespace BusinessInfo.Application.Common.Interfaces
         public DbSet<Domain.Entities.Issuer> Issuers { get; set; }
         public DbSet<Domain.Entities.Company> Companies { get; set; }
         public DbSet<Domain.Entities.Vehicle> Vehicles { get; set; }
+        public DbSet<Domain.Entities.RentalPartner> RentalPartners { get; set; }
         IExecutionStrategy CreateExecutionStrategy();
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
         void SetModifiedState<T>(T entity);
