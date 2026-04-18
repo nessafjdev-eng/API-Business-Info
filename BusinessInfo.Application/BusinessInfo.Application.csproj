@@ -27,4 +27,8 @@
     <ProjectReference Include="..\BusinessInfo.Domain\BusinessInfo.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="RentalPartner\Queries\" />
+  </ItemGroup>
+
 </Project>
