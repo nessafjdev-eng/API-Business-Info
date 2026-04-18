@@ -35,7 +35,7 @@ namespace BusinessInfo.Common
 
         public static string UnMask(this string value)
         {
-            return value.HasValue() ? value.Replace("-", "").Replace(",", "").Replace("/", "") : value;
+            return value.HasValue() ? value.Replace("-", "").Replace(",", "").Replace("/", "").Replace(".", "") : value;
         }
 
         public static string ToQueryString(this object obj)
