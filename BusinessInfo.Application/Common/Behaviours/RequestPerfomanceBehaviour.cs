@@ -15,6 +15,7 @@ namespace BusinessInfo.Application.Common.Behaviours
         private readonly List<RequestPerfomanceBehaviourSetting> _settings;
 
         public RequestPerfomanceBehaviour(ILogger<object> logger)
+        
         {
             _labels = new List<string>() { "name" }.ToArray();
             _timer = new Stopwatch();

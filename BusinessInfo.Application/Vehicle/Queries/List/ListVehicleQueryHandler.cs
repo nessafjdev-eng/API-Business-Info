@@ -39,7 +39,7 @@ namespace BusinessInfo.Application.VehicleSaved.Queries.List
 
                 var query = _context.Vehicles.OrderByDescending(x => x.CreatedAt).AsQueryable();
 
-                if (!string.IsNullOrWhiteSpace(request.VehicleId.ToString()))
+                if (!string.IsNullOrEmpty(request.VehicleId.ToString()))
                 {
                     query = query.Where(x => x.Id == request.VehicleId);
                 }
