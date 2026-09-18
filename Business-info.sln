@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessInfo.UpdateStatusLo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{C224BF6F-8FF5-4ED9-99D2-FC5CCC9FACAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BussinessInfo.VehicleRentalRequestProcessor", "BussinessInfo.VehicleRentalRequestProcessor\BussinessInfo.VehicleRentalRequestProcessor.csproj", "{674AF4B5-628C-4202-9A6B-46CA9A930C74}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +68,10 @@ Global
 		{A7B04AE4-981A-45EA-9DB9-A311AA5FBD03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7B04AE4-981A-45EA-9DB9-A311AA5FBD03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7B04AE4-981A-45EA-9DB9-A311AA5FBD03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{674AF4B5-628C-4202-9A6B-46CA9A930C74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{674AF4B5-628C-4202-9A6B-46CA9A930C74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{674AF4B5-628C-4202-9A6B-46CA9A930C74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{674AF4B5-628C-4202-9A6B-46CA9A930C74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +84,7 @@ Global
 		{E4952F89-2B39-468B-B556-66027C23123B} = {74176298-8245-43C1-8792-2E070D50EA6C}
 		{F51A9339-B98C-4CD8-986E-F9C90E29272B} = {8114D1AD-D880-48B9-9E63-27251A2BC801}
 		{A7B04AE4-981A-45EA-9DB9-A311AA5FBD03} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{674AF4B5-628C-4202-9A6B-46CA9A930C74} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {84E89C7D-ECD1-4B62-BAC4-7FBCEB13FFA5}

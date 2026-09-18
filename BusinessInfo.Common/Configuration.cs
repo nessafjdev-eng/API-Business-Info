@@ -51,6 +51,13 @@ namespace BusinessInfo.Common
         public static string EncryptionAESPath => _configuration.GetSection("Encryption")["Key"];
         public static string EncryptionAESIVPath => _configuration.GetSection("Encryption")["IV"];
         public static string RedisConnection => _configuration.GetSection("Redis")["RedisConnection"];
+        //Fila
+        public static string RabbitHost => _configuration["RabbitMQ:Host"];
+        public static int RabbitPort => int.Parse(_configuration["RabbitMQ:Port"] ?? "5672");
+        public static string RabbitUsername => _configuration["RabbitMQ:Username"];
+        public static string RabbitPassword => _configuration["RabbitMQ:Password"];
+        public static string RabbitExchange => _configuration["RabbitMQ:Exchange"];
+
 
 
 

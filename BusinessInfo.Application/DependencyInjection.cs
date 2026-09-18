@@ -3,6 +3,8 @@ using BusinessInfo.Application.Common.Behaviours;
 using BusinessInfo.Application.Common.Interfaces;
 using BusinessInfo.Application.Common.Jwt;
 using BusinessInfo.Application.Common.Redis;
+using BusinessInfo.Application.Services;
+using BusinessInfo.Application.Services.Interfaces;
 using BusinessInfo.Common;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -29,6 +31,8 @@ namespace BusinessInfo.Application
             services.AddScoped<AuthService>();
             services.AddTransient<AesEncryptionService>();
             services.AddScoped<IRedisCaching, RedisCaching>();
+            services.AddScoped<IMessageQueueService, RabbitMqService>();
+
 
 
 

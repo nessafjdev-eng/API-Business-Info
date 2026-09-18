@@ -55,11 +55,19 @@ namespace BusinessInfo.Application.VehicleSaved.Command.Create
         private async Task<Domain.Entities.Vehicle> VehicleEntity(CreateVehicleCommandRequest request)
         {
 
-            var existLicensePlate = await _context.Vehicles.FirstOrDefaultAsync(c => c.Plate == request.Plate);
+            var existPlateOrRenavam = await _context.Vehicles.FirstOrDefaultAsync(c => c.Plate == request.Plate || c.Renavam == request.Renavam);
 
-            if (existLicensePlate is not null)
+            if (existPlateOrRenavam is not null)
             {
-                throw new BadRequestException($"A placa {request.Plate} já existe.");
+                if (existPlateOrRenavam.Plate == request.Plate)
+                {
+                    throw new BadRequestException($"A placa {request.Plate} já existe.");
+                }
+                else if (existPlateOrRenavam.Renavam == request.Renavam)
+                {
+                    throw new BadRequestException($"O documento do veiculo {request.Renavam} já existe.");
+
+                }
             }
 
             var issuer = _httpContextAccessor.HttpContext?.User?.FindFirst("IssuerId")?.Value;
