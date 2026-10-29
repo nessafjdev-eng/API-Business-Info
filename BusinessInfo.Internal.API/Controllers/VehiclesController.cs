@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using BusinessInfo.Application.VehicleSaved.Queries.List;
 using System.Net;
+using BusinessInfo.Application.Vehicle.Queries.Details;
 
 namespace BusinessInfo.Internal.API.Controllers
 {
@@ -43,7 +44,19 @@ namespace BusinessInfo.Internal.API.Controllers
             responseApi.AddSuccess(new PaginatedModelResponse<ListVehicleQueryResponse>(response.Data.Total, response.Data.Items));
             return StatusCode(HttpStatusCode.OK.GetHashCode(), responseApi);
         }
+        [HttpGet("{id}")]
+        [ProducesResponseType(typeof(ResponseApiBase<DetailsVehicleQueryResponse>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponseApiBase<string>), StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> DetailsVehicle([FromQuery] DetailsVehicleQueryRequest request)
+        {
+            var responseApi = new ResponseApiBase<DetailsVehicleQueryResponse>();
             
+            var response = await _mediator.Send(request);
+            
+            responseApi.AddSuccess(response);
+            return StatusCode(HttpStatusCode.OK.GetHashCode(), responseApi);
+        }
+
 
         [Authorize]
         [HttpPost]
